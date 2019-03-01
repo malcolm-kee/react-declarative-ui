@@ -1,0 +1,28 @@
+{
+  "name": "react-declarative-ui",
+  "version": "0.0.1",
+  "description": "a talk to introduce react",
+  "scripts": {
+    "start": "webpack-dev-server --mode=\"development\" --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malcolm-kee/react-declarative-ui.git"
+  },
+  "author": "Malcolm Kee <malcolm.keeweesiong@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/malcolm-kee/react-declarative-ui/issues"
+  },
+  "homepage": "https://github.com/malcolm-kee/react-declarative-ui#readme",
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
+  }
+}
