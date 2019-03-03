@@ -1,2 +1,10 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import './style.css';
-import '../pages/2';
+
+const pathName = window.location.pathname;
+
+require(`../pages${pathName}.jsx`);
+
+window.React = React;
+window.ReactDOM = ReactDOM;
