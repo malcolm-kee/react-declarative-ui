@@ -6,17 +6,17 @@ function Counter() {
 
   React.useEffect(() => {
     if (count > 5) {
-      document.title = 'Too much!';
+      window.alert('Too much!');
     } else {
-      document.title = 'Add More!';
+      window.alert('Add More!');
     }
   }, [count > 5]);
 
   return (
     <div>
       <p>Current count: {count}</p>
-      <button onClick={() => setCount(count - 1)}>-</button>
-      <button onClick={() => setCount(count + 1)}>+</button>
+      <button onClick={() => setCount(prevCount => prevCount - 1)}>-</button>
+      <button onClick={() => setCount(prevCount => prevCount + 1)}>+</button>
     </div>
   );
 }
