@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// to implement a counter that can increment & decrement
 function Adder(props) {
   return (
     <div className="count" onClick={props.onClick}>

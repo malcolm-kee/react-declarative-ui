@@ -14,6 +14,7 @@
   "editor.renderIndentGuides": false,
   "editor.fontWeight": "600",
   "editor.fontSize": 24,
+  "markdown.preview.fontSize": 24,
   "terminal.integrated.fontWeight": "800",
   "terminal.integrated.fontSize": 28,
   "terminal.integrated.shell.linux": "/bin/bash"
