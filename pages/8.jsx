@@ -1,24 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function useCounterWithAlert(alertThreshold, initialCount = 0) {
+function useIncrementer(step = 1, initialCount = 0) {
   const [count, setCount] = React.useState(initialCount);
 
   function increment() {
-    setCount(prevCount => prevCount + 1);
+    setCount(prevCount => prevCount + step);
   }
 
   function decrement() {
-    setCount(prevCount => prevCount - 1);
+    setCount(prevCount => prevCount - step);
   }
-
-  React.useEffect(() => {
-    if (count > alertThreshold) {
-      consoleMsg('too much');
-    } else {
-      consoleMsg('add more!');
-    }
-  }, [count > alertThreshold]);
 
   return {
     count,
@@ -28,13 +20,29 @@ function useCounterWithAlert(alertThreshold, initialCount = 0) {
 }
 
 function Counter() {
-  const { count, increment, decrement } = useCounterWithAlert(5);
+  const { count, increment, decrement } = useIncrementer();
 
   return (
     <div className="count">
       Count: {count}
-      <button onClick={increment}>+</button>
-      <button onClick={decrement}>-</button>
+      <div>
+        <button onClick={decrement}>-</button>
+        <button onClick={increment}>+</button>
+      </div>
+    </div>
+  );
+}
+
+function BigCounter() {
+  const { count, increment, decrement } = useIncrementer(2, 100);
+
+  return (
+    <div className="count">
+      Count: {count}
+      <div>
+        <button onClick={decrement}>-</button>
+        <button onClick={increment}>+</button>
+      </div>
     </div>
   );
 }
@@ -43,6 +51,7 @@ function renderApp() {
   ReactDOM.render(
     <div>
       <Counter />
+      <BigCounter />
     </div>,
     document.getElementById('app')
   );

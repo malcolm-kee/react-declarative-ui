@@ -60,10 +60,11 @@ form {
   padding: 0;
 }
 
-.btn {
+button {
   padding: 8px 16px;
   min-height: 36px;
   min-width: 88px;
+  font-size: 1.4rem;
   border-radius: 8px;
   border-color: rgba(0, 0, 0, 0);
   background-color: rgb(97, 218, 251);

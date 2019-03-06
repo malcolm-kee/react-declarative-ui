@@ -12,19 +12,13 @@ function Counter() {
     setCount(prevCount => prevCount - 1);
   }
 
-  React.useEffect(() => {
-    if (count > 5) {
-      consoleMsg('too much');
-    } else {
-      consoleMsg('add more!');
-    }
-  }, [count > 5]);
-
   return (
     <div className="count">
       Count: {count}
-      <button onClick={increment}>+</button>
-      <button onClick={decrement}>-</button>
+      <div>
+        <button onClick={decrement}>-</button>
+        <button onClick={increment}>+</button>
+      </div>
     </div>
   );
 }
