@@ -18,11 +18,33 @@ li {
     0 3px 1px -2px rgba(0, 0, 0, 0.12);
 }
 
-.card {
+.card,
+.count {
   padding: 8px 16px;
   margin: 8px 0;
+  text-align: center;
+  font-size: 2rem;
+  user-select: none;
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
+
+.console {
+  margin: 8px 0;
+  padding: 8px;
+  background-color: #efefef;
+}
+
+.console > * {
+  font-size: 1.4rem;
+  margin: 4px;
+}
+
+.console > :last-child {
+  font-weight: bold;
+  padding: 4px;
+  color: rgb(251, 192, 45);
+  background-color: rgb(98, 108, 129);
 }
 
 .card-title {
@@ -42,6 +64,7 @@ button {
   padding: 8px 16px;
   min-height: 36px;
   min-width: 88px;
+  font-size: 1.4rem;
   border-radius: 8px;
   border-color: rgba(0, 0, 0, 0);
   background-color: rgb(97, 218, 251);
@@ -56,4 +79,11 @@ input {
   margin: 0;
   padding: 6px 0 7px;
   border-bottom: 1px solid #e0e0e0;
+}
+
+nav {
+  padding: 16px;
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-around;
 }
