@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function useIncrementer(step = 1, initialCount = 0) {
+function useWindowWithAlert(threshold, step = 1, initialCount = 0) {
   const [count, setCount] = React.useState(initialCount);
 
   function increment() {
@@ -12,6 +12,12 @@ function useIncrementer(step = 1, initialCount = 0) {
     setCount(prevCount => prevCount - step);
   }
 
+  React.useEffect(() => {
+    if (count > threshold) {
+      window.alert('Too much!');
+    }
+  }, [count > threshold]);
+
   return {
     count,
     increment,
@@ -20,7 +26,7 @@ function useIncrementer(step = 1, initialCount = 0) {
 }
 
 function Counter() {
-  const { count, increment, decrement } = useIncrementer();
+  const { count, increment, decrement } = useWindowWithAlert(5);
 
   return (
     <div className="count">
@@ -34,7 +40,7 @@ function Counter() {
 }
 
 function BigCounter() {
-  const { count, increment, decrement } = useIncrementer(2, 100);
+  const { count, increment, decrement } = useWindowWithAlert(6, 2, 2);
 
   return (
     <div className="count">

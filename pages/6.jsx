@@ -12,6 +12,12 @@ function Counter() {
     setCount(prevCount => prevCount - 1);
   }
 
+  React.useEffect(() => {
+    if (count > 5) {
+      window.alert('Too much');
+    }
+  }, [count > 5]);
+
   return (
     <div className="count">
       Count: {count}
