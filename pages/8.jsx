@@ -14,9 +14,9 @@ function useCounterWithAlert(alertThreshold, initialCount = 0) {
 
   React.useEffect(() => {
     if (count > alertThreshold) {
-      window.alert('too much');
+      consoleMsg('too much');
     } else {
-      window.alert('add more!');
+      consoleMsg('add more!');
     }
   }, [count > alertThreshold]);
 
@@ -40,7 +40,12 @@ function Counter() {
 }
 
 function renderApp() {
-  ReactDOM.render(<Counter />, document.getElementById('app'));
+  ReactDOM.render(
+    <div>
+      <Counter />
+    </div>,
+    document.getElementById('app')
+  );
 }
 
 renderApp();

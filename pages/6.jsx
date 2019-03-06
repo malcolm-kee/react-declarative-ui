@@ -14,9 +14,9 @@ function Counter() {
 
   React.useEffect(() => {
     if (count > 5) {
-      window.alert('too much');
+      consoleMsg('too much');
     } else {
-      window.alert('add more!');
+      consoleMsg('add more!');
     }
   }, [count > 5]);
 
@@ -30,7 +30,12 @@ function Counter() {
 }
 
 function renderApp() {
-  ReactDOM.render(<Counter />, document.getElementById('app'));
+  ReactDOM.render(
+    <div>
+      <Counter />
+    </div>,
+    document.getElementById('app')
+  );
 }
 
 renderApp();

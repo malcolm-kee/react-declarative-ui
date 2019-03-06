@@ -14,5 +14,13 @@
       <a href="/6">6</a>
       <a href="/8">8</a>
     </nav>
+    <div class="console"></div>
+    <script>
+      function consoleMsg(msg) {
+        var $msg = document.createElement('div');
+        $msg.innerHTML = msg;
+        document.querySelector('.console').appendChild($msg);
+      }
+    </script>
   </body>
 </html>
