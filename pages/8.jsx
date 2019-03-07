@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function useWindowWithAlert(threshold, step = 1, initialCount = 0) {
+function Button(props) {
+  return <button onClick={props.onClick}>{props.label}</button>;
+}
+
+function useCounterWithAlert(threshold, step = 1, initialCount = 0) {
   const [count, setCount] = React.useState(initialCount);
 
   function increment() {
@@ -25,29 +29,18 @@ function useWindowWithAlert(threshold, step = 1, initialCount = 0) {
   };
 }
 
-function Counter() {
-  const { count, increment, decrement } = useWindowWithAlert(5);
-
-  return (
-    <div className="count">
-      Count: {count}
-      <div>
-        <button onClick={decrement}>-</button>
-        <button onClick={increment}>+</button>
-      </div>
-    </div>
+function Counter(props) {
+  const { count, increment, decrement } = useCounterWithAlert(
+    props.threshold,
+    props.step
   );
-}
-
-function BigCounter() {
-  const { count, increment, decrement } = useWindowWithAlert(6, 2, 2);
 
   return (
     <div className="count">
       Count: {count}
       <div>
-        <button onClick={decrement}>-</button>
-        <button onClick={increment}>+</button>
+        <Button onClick={decrement} label="-" />
+        <Button onClick={increment} label="+" />
       </div>
     </div>
   );
@@ -56,8 +49,7 @@ function BigCounter() {
 function renderApp() {
   ReactDOM.render(
     <div>
-      <Counter />
-      <BigCounter />
+      <Counter threshold={5} step={2} />
     </div>,
     document.getElementById('app')
   );

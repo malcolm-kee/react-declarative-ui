@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+function Button(props) {
+  return <button onClick={props.onClick}>{props.label}</button>;
+}
+
 function Counter() {
   const [count, setCount] = React.useState(0);
 
@@ -22,8 +26,8 @@ function Counter() {
     <div className="count">
       Count: {count}
       <div>
-        <button onClick={decrement}>-</button>
-        <button onClick={increment}>+</button>
+        <Button onClick={decrement} label="-" />
+        <Button onClick={increment} label="+" />
       </div>
     </div>
   );
