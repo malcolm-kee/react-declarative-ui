@@ -23,6 +23,7 @@ module.exports = {
     port: 9200,
     historyApiFallback: true
   },
+  devtool: 'source-map',
   resolve: {
     extensions: ['*', '.js', '.jsx']
   },

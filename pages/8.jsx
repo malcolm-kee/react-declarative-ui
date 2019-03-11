@@ -29,6 +29,26 @@ function useCounterWithAlert(threshold, step = 1, initialCount = 0) {
   };
 }
 
+function useWindowEvent(eventType, callback, deps) {
+  const savedCallback = React.useRef();
+
+  React.useEffect(() => {
+    savedCallback.current = callback;
+  }, [callback]);
+
+  React.useEffect(() => {
+    function onEvent(event) {
+      savedCallback.current && savedCallback.current(event);
+    }
+
+    window.addEventListener(eventType, onEvent);
+
+    return function unSubListener() {
+      window.removeEventListener(eventType, onEvent);
+    };
+  }, [deps]);
+}
+
 function Counter(props) {
   const { count, increment, decrement } = useCounterWithAlert(
     props.threshold,
